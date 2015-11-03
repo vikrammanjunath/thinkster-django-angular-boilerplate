@@ -15,3 +15,9 @@ dist/
 
 # Staticfiles
 staticfiles/
+
+# pycharm stuff
+.idea
+
+# Emacs backups
+*~
