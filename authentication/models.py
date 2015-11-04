@@ -41,8 +41,7 @@ class Account(AbstractBaseUser):
     created_at = models.DateTimeField(auto_now_add=True)
     edited_at = models.DateTimeField(auto_now=True)
 
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username',]
+    USERNAME_FIELD = 'username'
 
     objects = AccountManager()
 
