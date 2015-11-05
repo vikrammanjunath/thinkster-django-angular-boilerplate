@@ -18,10 +18,24 @@
 <script type="text/javascript" src="{% static 'javascripts/notgoog.js' %}"></script>
 <script type="text/javascript" src="{% static 'javascripts/config.js' %}"></script>
 <script type="text/javascript" src="{% static 'javascripts/routes.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/posts/posts.module.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/posts/services/posts.services.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/posts/directives/posts.directives.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/posts/directives/post.directives.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/posts/controllers/posts.controllers.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/layout/layout.module.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/layout/controllers/navbar.controller.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/layout/controllers/index.controller.js' %}"></script>
 <script type="text/javascript" src="{% static 'javascripts/authentication/authentication.module.js' %}"></script>
 <script type="text/javascript" src="{% static 'javascripts/authentication/services/authentication.service.js' %}"></script>
 <script type="text/javascript" src="{% static 'javascripts/authentication/controllers/register.controller.js' %}"></script>
 <script type="text/javascript" src="{% static 'javascripts/authentication/controllers/login.controller.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/utils/utils.module.js' %}"></script>
+<script type="text/javascript" src="{% static 'javascripts/utils/services/snackbar.service.js' %}"></script>
 
-
+<script type="text/javascript">
+angular.module('notgoog').config(['$httpProvider', function($httpProvider){
+    $httpProvider.defaults.headers.common['X-CSRFToken'] = '{{ csrf_token | escapejs }}';
+}]);
+</script>
 {% endcompress %}

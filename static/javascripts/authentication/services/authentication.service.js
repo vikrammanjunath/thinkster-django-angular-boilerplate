@@ -6,6 +6,9 @@
             var setAuthenticatedAccount = function(account) {
               $cookies.authenticatedAccount = JSON.stringify(account);
             };
+            var unauthenticate = function(){
+                delete $cookies.authenticatedAccount;
+            };
 
             return {
                 register: function(email, password, username){
@@ -15,7 +18,6 @@
                         email: email
                     }).then(function(data){
                         //success
-                        setAuthenticatedAccount(data.data);
                         window.location = '/';
                     }, function(){
                         //error
@@ -45,8 +47,19 @@
                     return !!$cookies.authenticatedAccount;
                 },
                 setAuthenitcatedAccount: setAuthenticatedAccount,
-                unauthenticate: function(){
-                    delete $cookies.authenticatedAccount;
+                unauthenticate: unauthenticate,
+                logout: function(){
+                    return $http.post('/api/v1/auth/logout/').then(
+                        function(){
+                            //success
+                            unauthenticate();
+                            window.location= '/';
+                        },
+                        function(){
+                            //error
+                            console.log('Logout failed')
+                        }
+                    );
                 }
 
             }

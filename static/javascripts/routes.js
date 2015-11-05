@@ -9,6 +9,11 @@
                 controller: 'LoginCtrl',
                 controllerAs: 'vm',
                 templateUrl: 'static/templates/authentication/login.html'
+            }).when('/',{
+                controller: 'IndexCtrl',
+                controllerAs: 'vm',
+                templateUrl: 'static/templates/layout/index.html'
+
             }).otherwise({redirectTo: '/'});
         }]);
 })();

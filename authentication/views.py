@@ -1,13 +1,13 @@
 from rest_framework import permissions, viewsets, views
 from rest_framework.response import Response
-from rest_framework.status import HTTP_201_CREATED, HTTP_400_BAD_REQUEST, HTTP_401_UNAUTHORIZED
+from rest_framework.status import HTTP_201_CREATED, HTTP_400_BAD_REQUEST, HTTP_401_UNAUTHORIZED, HTTP_204_NO_CONTENT
 
 from .models import Account
 from .permissions import IsAccountOwner
 from .serializers import AccountSerializer
 
 import json
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 class AccountViewSet(viewsets.ModelViewSet):
@@ -62,3 +62,11 @@ class LoginView(views.APIView):
                     'status': 'Unauthorized',
                     'message': 'Bad username or password'
                 }, status=HTTP_401_UNAUTHORIZED)
+
+
+class LogoutView(views.APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def post(self, request, format=None):
+        logout(request)
+        return Response({}, status=HTTP_204_NO_CONTENT)
