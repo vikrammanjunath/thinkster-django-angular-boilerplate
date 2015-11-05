@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('notgoog', [
-        'ngRoute', 'authentication', 'notgoog.config', 'layout', 'posts', 'utils'
+        'ngRoute', 'authentication', 'notgoog.config', 'layout', 'posts', 'utils', 'profiles'
     ]);
 
     angular.module('notgoog')

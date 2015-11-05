@@ -12,7 +12,7 @@
                     });
                 },
                 get: function(username){
-                    return $http.get('/api/v1/posts/' + username + '/posts/')
+                    return $http.get('/api/v1/accounts/' + username + '/posts/')
                 }
             };
         }]);

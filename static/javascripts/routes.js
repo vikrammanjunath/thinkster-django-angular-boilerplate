@@ -14,6 +14,14 @@
                 controllerAs: 'vm',
                 templateUrl: 'static/templates/layout/index.html'
 
+            }).when('/+:username',{
+                controller: 'ProfileCtrl',
+                controllerAs: 'vm',
+                templateUrl: 'static/templates/profiles/profile.html'
+            }).when('/+:username/settings',{
+                controller: 'ProfileSettingsCtrl',
+                controllerAs: 'vm',
+                templateUrl: 'static/templates/profiles/settings.html'
             }).otherwise({redirectTo: '/'});
         }]);
 })();

@@ -18,5 +18,5 @@ urlpatterns = patterns(
     url(r'^api/v1/', include(accounts_router.urls)),
     url(r'^api/v1/auth/login/$', LoginView.as_view(), name='login'),
     url(r'^api/v1/auth/logout/$', LogoutView.as_view(), name='logout'),
-    url('^$', IndexView.as_view(), name='index'),
+    url('^.*$', IndexView.as_view(), name='index'),
 )
